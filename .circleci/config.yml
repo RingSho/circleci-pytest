@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7.4
+        environment:
+        PIPENV_VENV_IN_PROJECT: true
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: |
+            sudo pip install pipenv
+            pipenv install
+      - run:
+          name: run test
+          command: |
+            pipenv run pytest
+      - run:
+          name: run test-cov
+          command: |
+            pipenv run pytest --cov=src
