@@ -10,7 +10,7 @@ def test_get_image_name():
 
 def test_get_image_ext():
     image_translator = ImageTranslator("images/octocat.png")
-    assert ".png" == image_translator.get_image_ext()
+    assert ".jpg" == image_translator.get_image_ext()
 
 def test_get_image_shape():
     """長さが2で要素がintのtupleが返ってくる"""
